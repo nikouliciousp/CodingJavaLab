@@ -7,14 +7,19 @@
 Basic Java Programs
 </p>
 
-<a href="https://github.com/nikouliciousp/CodingLab/tree/master/src/gr/perisnik/java/wf1"># WF1</a>
+<a href="https://github.com/nikouliciousp/CodingJavaLab/tree/main/wf1"># WF1</a>
 <p>
 Contains basic mathematical algorithms
 </p>
 
-<a href="https://github.com/nikouliciousp/CodingLab/tree/master/src/gr/perisnik/java/wf2"># WF2</a>
+<a href="https://github.com/nikouliciousp/CodingJavaLab/tree/main/wf2"># WF2</a>
 <p>
 Contains basic sorting algorithms
+</p>
+
+<a href="https://github.com/nikouliciousp/CodingJavaLab/tree/main/wf3"># WF3</a>
+<p>
+Contains basic java apps
 </p>
 
 <div align="center">
