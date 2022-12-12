@@ -2,6 +2,11 @@ package gr.aueb.cf.projects.wf3;
 
 import java.util.Scanner;
 
+/**
+ * This app prints a menu.
+ *
+ * @author Periklis Nikoulis
+ */
 public class MenuApp {
 
     final static Scanner in = new Scanner(System.in);
@@ -24,7 +29,10 @@ public class MenuApp {
             }
         } while (!quit);
     }
-;
+
+    /**
+     * Prints menu.
+     */
     public static void printMenu() {
         System.out.println("Please select one of the following: ");
         System.out.println("1. Insert");
@@ -34,10 +42,21 @@ public class MenuApp {
         System.out.println("Q or q to Quit");
     }
 
+    /**
+     * Reads a String from stdin.
+     *
+     * @return String
+     */
     public static String getChoice() {
         return in.nextLine().trim();
     }
 
+    /**
+     * Prints user choice.
+     *
+     * @param s for a given String
+     * @throws IllegalArgumentException
+     */
     public static void printOnChoice(String s) throws IllegalArgumentException {
         int choice;
 
@@ -61,7 +80,7 @@ public class MenuApp {
                     throw new IllegalArgumentException();
             }
         } catch (IllegalArgumentException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             throw e;
         }
     }
