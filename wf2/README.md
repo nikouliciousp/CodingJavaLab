@@ -1,1 +1,1 @@
-<a href="https://github.com/nikouliciousp/CodingLab"># CodingLab</a>
+<a href="https://github.com/nikouliciousp/CodingJavaLab"># CodingJavaLab</a>
