@@ -3,7 +3,6 @@
 <div align="center">
 <img style="border-radius: 20%" src="https://avatars.githubusercontent.com/u/33593928?s=96&v=4" alt="Alt text" title="Optional title">
 </div>
-<h1> CodingLab </h1>
 <p>
 Basic Java Programs
 </p>
