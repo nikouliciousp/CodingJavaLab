@@ -1,0 +1,5 @@
+2022-12-13T21:00:22.187066100
+java.lang.IllegalArgumentException: Contact not found
+2022-12-13T21:00:22.202734800
+java.lang.IllegalArgumentException: Contact not found
+Get Contact Error
