@@ -1,5 +1,11 @@
 package gr.aueb.cf.projects.wf3;
 
+/**
+ * This application encrypts and decrypts a message based on the ASCII
+ * and a key.
+ *
+ * @author Periklis Nikoulis
+ */
 public class CryptoApp {
 
     public static void main(String[] args) {
@@ -13,6 +19,14 @@ public class CryptoApp {
         System.out.println(decrypted);
     }
 
+    /**
+     * Encrypts a String message based on the ASCII
+     * and a key.
+     *
+     * @param s     for a given String
+     * @param key   for a given KEY
+     * @return      Encrypted String
+     */
     public static String encrypt(String s, int key) {
         StringBuilder encrypted = new StringBuilder();
         char ch;
@@ -29,6 +43,14 @@ public class CryptoApp {
         return encrypted.toString();
     }
 
+    /**
+     * Decrypted a String message based on the ASCII
+     * and a key.
+     *
+     * @param s     for a given String
+     * @param key   for a given KEY
+     * @return      Decrypted String
+     */
     public static String decrypt(String s, int key) {
         StringBuilder decrypted = new StringBuilder();
         char ch;
@@ -45,6 +67,14 @@ public class CryptoApp {
         return decrypted.toString();
     }
 
+    /**
+     * Ciphers a char based on the ASCII
+     * and a key.
+     *
+     * @param ch for a given Character
+     * @param key for a given KEY
+     * @return Ciphered Character
+     */
     public static char cipher(char ch, int key) {
         int m;
         int c;
@@ -55,6 +85,14 @@ public class CryptoApp {
         return (char) (c + 65);
     }
 
+    /**
+     * Deciphers a char based on the ASCII
+     * and a key.
+     *
+     * @param ch for a given Character
+     * @param key for a given KEY
+     * @return Deciphered Character
+     */
     public static char decipher(int ch, int key) {
         int m;
         int c;

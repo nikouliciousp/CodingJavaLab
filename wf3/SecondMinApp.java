@@ -1,5 +1,11 @@
 package gr.aueb.cf.projects.wf3;
 
+/**
+ * This application finds the position and value
+ * of the second min number of an array.
+ *
+ * @author Periklis Nikoulis
+ */
 public class SecondMinApp {
 
     public static void main(String[] args) {
@@ -11,6 +17,12 @@ public class SecondMinApp {
         System.out.printf("SecMinPos: %d SecMinValue: %d", (secMin + 1), arr[secMin]);
     }
 
+    /**
+     * Finds position of second min number in an array.
+     *
+     * @param arr for a given array
+     * @return secondMin
+     */
     public static int getSecondMinPosition(int[] arr) {
         int min = 0;
         int secondMin = 1;

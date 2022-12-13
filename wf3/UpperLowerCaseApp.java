@@ -1,7 +1,9 @@
 package gr.aueb.cf.projects.wf3;
 
 /**
- * "hello" -> "HeLlO"
+ * This app converts a String: "hello" -> "HeLlO".
+ *
+ * @author Periklis Nikoulis
  */
 public class UpperLowerCaseApp {
 

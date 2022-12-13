@@ -2,6 +2,11 @@ package gr.aueb.cf.projects.wf3;
 
 import java.util.Scanner;
 
+/**
+ * This app prints patterns of stars.
+ *
+ * @author Periklis Nikoulis
+ */
 public class StarsApp {
 
     final static Scanner in = new Scanner(System.in);
@@ -25,6 +30,9 @@ public class StarsApp {
         } while (!quit);
     }
 
+    /**
+     * Prints menu.
+     */
     public static void printMenu() {
         System.out.println("Please select one of the following: ");
         System.out.println("1. Print H");
@@ -35,10 +43,21 @@ public class StarsApp {
         System.out.println("Q or q to Quit");
     }
 
+    /**
+     * Reads a String from stdin.
+     *
+     * @return String
+     */
     public static String getChoice() {
         return in.nextLine().trim();
     }
 
+    /**
+     * Prints user choice.
+     *
+     * @param s for a given String
+     * @throws IllegalArgumentException
+     */
     public static void printOnChoice(String s) throws IllegalArgumentException {
         int choice;
         int n = 0;
@@ -78,18 +97,33 @@ public class StarsApp {
         }
     }
 
+    /**
+     * Prints Horizontal Stars.
+     *
+     * @param n number of stars
+     */
     public static void printStarsH(int n) {
         for (int i = 0; i <= n; i++) {
             System.out.print("*");
         }
     }
 
+    /**
+     * Prints Vertical Stars.
+     *
+     * @param n number of stars
+     */
     public static void printStarsV(int n) {
         for (int i = 0; i <= n; i++) {
             System.out.println("*");
         }
     }
 
+    /**
+     * Prints Horizontal - Vertical Stars.
+     *
+     * @param n number of stars
+     */
     public static void printStarsHV(int n) {
         for (int i = 0; i <= n; i++) {
             printStarsH(n);
@@ -97,6 +131,11 @@ public class StarsApp {
         }
     }
 
+    /**
+     * Prints Horizontal - Vertical Asc Stars.
+     *
+     * @param n number of stars
+     */
     public static void printStarsHVAsc(int n) {
         for (int i = 0; i <= n; i++) {
             printStarsH(i);
@@ -104,6 +143,11 @@ public class StarsApp {
         }
     }
 
+    /**
+     * Prints Horizontal - Vertical Desc Stars.
+     *
+     * @param n number of stars
+     */
     public static void printStarsHVDesc(int n) {
         for (int i = n; i >= 0; i--) {
             printStarsH(i);

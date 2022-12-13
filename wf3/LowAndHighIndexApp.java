@@ -1,5 +1,10 @@
 package gr.aueb.cf.projects.wf3;
 
+/**
+ * This app finds low and high position of a number-key in a sorted array.
+ *
+ * @author Periklis Nikoulis
+ */
 public class LowAndHighIndexApp {
 
     public static void main(String[] args) {
@@ -10,6 +15,13 @@ public class LowAndHighIndexApp {
         System.out.printf("(%d, %d)", returned[0] + 1, returned[1] + 1);
     }
 
+    /**
+     * Finds low and high position of a number-key in a sorted array.
+     *
+     * @param arr for a given array
+     * @param key for a given key
+     * @return int[] = {low, high}
+     */
     public static int[] getLowAndHighIndexOf(int[] arr, int key) {
         int low = 0;
         int high = 0;

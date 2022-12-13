@@ -1,17 +1,30 @@
 package gr.aueb.cf.projects.wf3;
 
-public class MaxPositionApp {
+/**
+ * This app finds a max value in a specific range into Array.
+ *
+ * @author Periklis Nikoulis
+ */
+public class MaxValueInRangeApp {
 
     public static void main(String[] args) {
         int[] arr = {1, 2, 7, 9, 5};
         int maxPos;
 
-        maxPos = getMaxPosition(arr, 0, arr.length - 1);
+        maxPos = getMaxValueInRange(arr, 0, arr.length - 1);
         if (maxPos == -1) System.exit(1);
         System.out.println(arr[maxPos]);
     }
 
-    public static int getMaxPosition(int[] arr, int low, int high) {
+    /**
+     * Finds max value in a specific range into Array.
+     *
+     * @param arr   for a given Array
+     * @param low   for a given low
+     * @param high  for a given high
+     * @return      max value in range
+     */
+    public static int getMaxValueInRange(int[] arr, int low, int high) {
         int maxPosition = 0;
         int maxValue = 0;
 
