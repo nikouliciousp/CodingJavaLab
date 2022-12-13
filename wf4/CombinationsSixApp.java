@@ -4,9 +4,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
+/**
+ *
+ *
+ * @author Periklis Nikoulis
+ */
 public class CombinationsSixApp {
 
     public static void main(String[] args) throws FileNotFoundException {
@@ -38,6 +43,8 @@ public class CombinationsSixApp {
                 break;
             }
         }
+
+        Collections.sort(numbers);
 
         if ((numberOfInts >= 6) && (numberOfInts <= 49)) {
             for (int i = 0; i <= numbers.size() - N; i++) {
@@ -94,7 +101,7 @@ public class CombinationsSixApp {
         int count = 1;
 
         for (int i = 1; i < row.length; i++) {
-            if (row[i - 1] == row[i]) {
+            if (row[i - 1] == row[i] + 1) {
                 count++;
                 if (count > continuous) {
                     break;
@@ -108,7 +115,7 @@ public class CombinationsSixApp {
     }
 
     public static boolean isSameEnding(int[] row, int end) {
-        int count = 0;
+        int count = 1;
 
         for (int i = 0; i < row.length - 1; i++) {
             if (row[row.length - 1] == row[i]) {
