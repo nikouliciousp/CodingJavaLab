@@ -1,7 +1,7 @@
 package gr.aueb.cf.projects.wf4;
 
 /**
- * This app finds the sum of the continuous subarray within
+ * This app finds the sum of the continuous sub Array within
  * an array with the maximum sum.
  *
  * @author Periklis Nikoulis
@@ -11,7 +11,7 @@ public class MaximumSumSubArray {
     static int maxSumSubArray = Integer.MIN_VALUE;
 
     public static void main(String[] args) {
-        int[] arr = {-2, -10, -3, -4, 0, -2, -1, -5, -4};
+        int[] arr = {-2, 3, -1, 2, 5};
         int[] resultsArray = maximumSumSubArray(arr);
 
         System.out.println("Maximum SubArray is: " + resultsArray[0] + " Starts: " + resultsArray[1] + " Ends: " + resultsArray[2]);
