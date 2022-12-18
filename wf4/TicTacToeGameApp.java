@@ -130,6 +130,8 @@ public class TicTacToeGameApp {
         int column;
         int flag = 0;
 
+        System.out.println("Choose A-C for row and 1-3 for column... eg. 'A1' or 'a1");
+        System.out.println("(Choose 'Q' or 'q' for exit)");
         System.out.println("Player " + OX + " is playing:");
 
         while (flag == 0) {
@@ -174,7 +176,5 @@ public class TicTacToeGameApp {
         System.out.printf("A %s|%s|%s\n", ch[0][0], ch[0][1],ch[0][2]);
         System.out.printf("B %s|%s|%s\n", ch[1][0], ch[1][1],ch[1][2]);
         System.out.printf("C %s|%s|%s\n", ch[2][0], ch[2][1],ch[2][2]);
-        System.out.println("Choose A-C for row and 1-3 for column... eg. 'A1' or 'a1");
-        System.out.println("(Choose 'Q' or 'q' for exit)");
     }
 }
