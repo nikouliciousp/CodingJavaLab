@@ -18,6 +18,12 @@ public class MaximumSumSubArray {
     }
 
 
+    /**
+     * Finds max sum of subArray.
+     *
+     * @param arr for a given Array
+     * @return    sum subArray and indexes of subArray
+     */
     public static int[] maximumSumSubArray(int[] arr) {
         //returnedArray[0] = maxSumSubArray, returnedArray[1] = startsIndex, returnedArray[2] = endIndex
         int [] returnedArray = new int[3];
