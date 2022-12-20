@@ -8,7 +8,14 @@ import java.util.Collections;
 import java.util.Scanner;
 
 /**
- *
+ * This app generates all possible sixes (combinations of 6 numbers).
+ * After generates each six it 'filters' each six to complete the
+ * following:
+ * 1) Contain at most 4 even numbers,
+ * 2) contain at most 4 odd,
+ * 3) contain at most 2 consecutive,
+ * 4) contain at most 3 identical endings,
+ * 5) contain at most 3 numbers in the same ten.
  *
  * @author Periklis Nikoulis
  */
@@ -73,6 +80,15 @@ public class CombinationsSixApp {
         }
     }
 
+    /**
+     * Checks if evens numbers there are in a combination
+     * are more than for a given number.
+     *
+     * @param row   for a given Array
+     * @param even  for a given numbers of evens
+     * @return      false if exist combination with more
+     *              than the allowed evens numbers
+     */
     public static boolean isEven(int[] row, int even) {
         int count = 0;
 
@@ -85,6 +101,15 @@ public class CombinationsSixApp {
         return (count > even);
     }
 
+    /**
+     * Checks if odds numbers there are in a combination
+     * are more than for a given number.
+     *
+     * @param row   for a given Array
+     * @param odd   for a given numbers of odds
+     * @return      false if exist combination with more
+     *              than the allowed odds numbers
+     */
     public static boolean isOdd(int[] row, int odd) {
         int count = 0;
 
@@ -97,6 +122,14 @@ public class CombinationsSixApp {
         return (count > odd);
     }
 
+    /**
+     * Checks for consecutive numbers.
+     *
+     * @param row           for a given Array
+     * @param continuous    for a given consecutive numbers allowed
+     * @return              false if exist combination with more than the
+     *                      allowed consecutive numbers
+     */
     public static boolean isContinuous(int[] row, int continuous) {
         int count = 1;
 
@@ -114,6 +147,14 @@ public class CombinationsSixApp {
         return (count > continuous);
     }
 
+    /**
+     * Checks for same ending numbers.
+     *
+     * @param row   for a given number
+     * @param end   for a given number of endings
+     * @return      false if exist combination with
+     *              more than the allowed ending numbers
+     */
     public static boolean isSameEnding(int[] row, int end) {
         int count = 1;
 
@@ -129,6 +170,13 @@ public class CombinationsSixApp {
         return (count > end);
     }
 
+    /**
+     *
+     * @param row   for a given Array
+     * @param ten   for a given number of numbers belonging to the same ten
+     * @return      false if exist combination with
+     *              more than the allowed numbers belonging to the same ten
+     */
     public static boolean isSameTen(int[] row, int ten) {
         int count10 = 0;
         int count20 = 0;
@@ -165,6 +213,7 @@ public class CombinationsSixApp {
             }
         }
 
-        return ((count10 > ten) || (count20 > ten) || (count30 > ten) || (count40 > ten) || (count50 > ten));
+        return ((count10 > ten) || (count20 > ten) ||
+                (count30 > ten) || (count40 > ten) || (count50 > ten));
     }
 }
