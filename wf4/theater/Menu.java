@@ -7,12 +7,10 @@ public class Menu {
 
 
     /**
-     * Creates a Menu of Theater
-     * and handles it.
+     * Creates a Menu of Theater.
      */
     public Menu() {
         this.theater = new Theater();
-        modeMenu();
     }
 
     /**
@@ -29,7 +27,7 @@ public class Menu {
     /**
      * Handles Menu Choice of Theater.
      */
-    private void modeMenu() {
+    public void modeMenu() {
         Scanner in = new Scanner(System.in);
         int exit = 0;
         String str;
