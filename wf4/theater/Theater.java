@@ -2,11 +2,18 @@ package gr.aueb.cf.projects.wf4.theater;
 
 import java.util.Scanner;
 
+/**
+ * Implements the seats, bookings and cancellations
+ * of a Theater.
+ */
 public class Theater {
     private int row;
     private int column;
     private boolean[][] seats;
 
+    /**
+     * Creates seats table of Theater.
+     */
     public Theater() {
         Scanner in = new Scanner(System.in);
         String str;
@@ -45,6 +52,9 @@ public class Theater {
         }
     }
 
+    /**
+     * Books a seat of Theater.
+     */
     public void bookSeat() {
         Scanner in = new Scanner(System.in);
         String str;
@@ -88,6 +98,9 @@ public class Theater {
         //System.out.println(row + " " + column);
     }
 
+    /**
+     * Cancel a set of Theater.
+     */
     public void cancelSeat() {
         Scanner in = new Scanner(System.in);
         String str;
