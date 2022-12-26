@@ -26,7 +26,7 @@ public class Theater {
         while (flag == 0) {
             if ((in.hasNextInt()) && (flagRow == 0)) {
                 this.row = in.nextInt();
-                if (this.row < 24) {
+                if (this.row <= 24) {
                     flagRow = 1;
                     System.out.println("Please enter the number of theater lines:");
                     if (in.hasNextInt()) {
