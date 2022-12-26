@@ -26,15 +26,19 @@ public class Theater {
         while (flag == 0) {
             if ((in.hasNextInt()) && (flagRow == 0)) {
                 this.row = in.nextInt();
-                flagRow = 1;
-                System.out.println("Please enter the number of theater lines:");
-                if (in.hasNextInt()) {
-                    this.column = in.nextInt();
-                    this.seats = new boolean[this.row][this.column];
-                    flag = 1;
+                if (this.row < 24) {
+                    flagRow = 1;
+                    System.out.println("Please enter the number of theater lines:");
+                    if (in.hasNextInt()) {
+                        this.column = in.nextInt();
+                        this.seats = new boolean[this.row][this.column];
+                        flag = 1;
+                    } else {
+                        System.out.println("Please enter an int number of theater lines");
+                        str = in.next();
+                    }
                 } else {
-                    System.out.println("Please enter an int number of theater lines");
-                    str = in.next();
+                    System.out.println("Please enter an int number of theater columns with range 1 - 24");
                 }
             } else if (flagRow == 1) {
                 if (in.hasNextInt()) {
