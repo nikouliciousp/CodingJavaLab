@@ -7,9 +7,11 @@ import java.util.Scanner;
  * of a Theater.
  */
 public class Theater {
-    private int row;
     private int column;
+    private int row;
     private boolean[][] seats;
+
+    private int counterBookedSeats;
 
     /**
      * Creates seats table of Theater.
@@ -19,20 +21,25 @@ public class Theater {
         String str;
         int flag = 0;
         int flagRow = 0;
+        counterBookedSeats = 0;
 
         System.out.println("<<------Welcome to the Theater App------>>");
-        System.out.println("Please enter the number of theater columns:");
+        System.out.println("Please enter the number of theater columns (1 - 24):");
 
         while (flag == 0) {
             if ((in.hasNextInt()) && (flagRow == 0)) {
-                this.row = in.nextInt();
-                if (this.row <= 24) {
+                this.column = in.nextInt();
+                if ((this.column <= 24) && (this.column > 0)) {
                     flagRow = 1;
-                    System.out.println("Please enter the number of theater lines:");
+                    System.out.println("Please enter the number of theater lines (1 - 99):");
                     if (in.hasNextInt()) {
-                        this.column = in.nextInt();
-                        this.seats = new boolean[this.row][this.column];
-                        flag = 1;
+                        this.row = in.nextInt();
+                        if ((this.row <= 99) && (this.row > 0)) {
+                            this.seats = new boolean[this.column][this.row];
+                            flag = 1;
+                        } else {
+                            System.out.println("Please enter an int number of theater lines with range 1 - 99");
+                        }
                     } else {
                         System.out.println("Please enter an int number of theater lines");
                         str = in.next();
@@ -42,8 +49,8 @@ public class Theater {
                 }
             } else if (flagRow == 1) {
                 if (in.hasNextInt()) {
-                    this.column = in.nextInt();
-                    this.seats = new boolean[this.row][this.column];
+                    this.row = in.nextInt();
+                    this.seats = new boolean[this.column][this.row];
                     flag = 1;
                 } else {
                     System.out.println("Please enter an int number of theater lines");
@@ -75,8 +82,8 @@ public class Theater {
                 continue;
             }
             row = Character.toUpperCase(str.charAt(0)) - 'A';
-            if (row > this.seats.length) {
-                System.out.println("Please check the range of input seats... eg. 'A1' or 'a1'");
+            if ((row > this.seats.length) || (row < 0)) {
+                System.out.println("Please check the range of input seats... eg. '[A-Z][1-99]' or '[a-z][1-99]''");
                 //or return and print Menu again
                 continue;
             }
@@ -85,14 +92,15 @@ public class Theater {
                 column = (10 * column) + (str.charAt(2) - '0');
             }
             column--;
-            if (column > this.seats[0].length) {
-                System.out.println("Please check the range of input seats... eg. 'A1' or 'a1'");
+            if ((column > this.seats[0].length) || (column < 0)) {
+                System.out.println("Please check the range of input seats... eg. '[A-Z][1-99]' or '[a-z][1-99]'");
                 //or return and print Menu again
                 continue;
             }
             if (this.seats[row][column] == false) {
                 this.seats[row][column] = true;
                 System.out.println("The " + str + " is booked.");
+                counterBookedSeats++;
                 flag = 1;
             } else {
                 System.out.println("The " + str + " is  already booked.");
@@ -121,8 +129,8 @@ public class Theater {
                 continue;
             }
             row = Character.toUpperCase(str.charAt(0)) - 'A';
-            if (row > this.seats.length) {
-                System.out.println("Please check the range of input seats... eg. 'A1' or 'a1'");
+            if (row > this.seats.length || (row < 0)) {
+                System.out.println("Please check the range of input seats... eg. '[A-Z][1-99]' or '[a-z][1-99]'");
                 //or return and print Menu again
                 continue;
             }
@@ -131,14 +139,15 @@ public class Theater {
                 column = (10 * column) + (str.charAt(2) - '0');
             }
             column--;
-            if (column > this.seats[0].length) {
-                System.out.println("Please check the range of input seats... eg. 'A1' or 'a1'");
+            if ((column > this.seats[0].length) || (column < 0)) {
+                System.out.println("Please check the range of input seats... eg. '[A-Z][1-99]' or '[a-z][1-99]'");
                 //or return and print Menu again
                 continue;
             }
             if (this.seats[row][column] == true) {
                 this.seats[row][column] = false;
                 System.out.println("The " + str + " is canceled.");
+                counterBookedSeats--;
                 flag = 1;
             } else {
                 System.out.println("The " + str + " is  already canceled.");
@@ -152,17 +161,19 @@ public class Theater {
      * Prints seats of Theater.
      */
     public void printSeatsTheater() {
-        for (int i = column - 1; i >= 0; i--) {
+        for (int i = row - 1; i >= 0; i--) {
             System.out.printf("%02d: ", (i + 1));
-            for (int j = 0; j < row; j++) {
+            for (int j = 0; j < column; j++) {
                 System.out.print(seats[j][i] + "\t|\t");
             }
             System.out.println();
         }
-        for (int j = 0; j < row; j++) {
+        for (int j = 0; j < column; j++) {
             System.out.printf("\t\t\t%s", (char) ('A' + j));
         }
         System.out.println();
+        System.out.println("Total seats: " + (row * column));
+        System.out.println("Empty seats: " + ((row * column) - counterBookedSeats));
     }
 }
 
