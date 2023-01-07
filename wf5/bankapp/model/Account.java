@@ -1,5 +1,11 @@
 package gr.aueb.cf.projects.wf5.bankapp.model;
 
+import gr.aueb.cf.ch11.model.Seminar;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * This App create an Account.
  * Javabean + Functionality
@@ -15,8 +21,8 @@ public class Account {
     private String lastname;
     private String ssn;
     private double balance;
-    private OverdraftAccount overdraftAccount;
-    private JoinAccount joinAccount;
+    private List<OverdraftAccount> overdraftAccount = new ArrayList<>();
+    private List<JoinAccount> joinAccount = new ArrayList<>();
 
     /**
      * Create an Account instance with default Constructor.
@@ -47,93 +53,6 @@ public class Account {
         this.lastname = lastname;
         this.ssn = ssn;
         this.balance = balance;
-    }
-
-    /**
-     * Create an Account with Overloaded Constructor.
-     *
-     * @param id
-     *      Account 's id
-     * @param iban
-     *      Account 's iban
-     * @param firstname
-     *      Account 's firstname
-     * @param lastname
-     *      Account 's lastname
-     * @param ssn
-     *      Account 's ssn
-     * @param balance
-     *      Account 's balance
-     * @param overdraftAccount
-     *      Account 's overdraft
-     */
-    public Account(int id, String iban, String firstname, String lastname, String ssn, double balance, OverdraftAccount overdraftAccount) {
-        this.id = id;
-        this.iban = iban;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.ssn = ssn;
-        this.balance = balance;
-        this.overdraftAccount = overdraftAccount;
-    }
-
-    /**
-     * Create an Account with Overloaded Constructor.
-     *
-     * @param id
-     *      Account 's id
-     * @param iban
-     *      Account 's iban
-     * @param firstname
-     *      Account 's firstname
-     * @param lastname
-     *      Account 's lastname
-     * @param ssn
-     *      Account 's ssn
-     * @param balance
-     *      Account 's balance
-     * @param joinAccount
-     *      Account 's joint
-     */
-    public Account(int id, String iban, String firstname, String lastname, String ssn, double balance, JoinAccount joinAccount) {
-        this.id = id;
-        this.iban = iban;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.ssn = ssn;
-        this.balance = balance;
-        this.joinAccount = joinAccount;
-    }
-
-    /**
-     * Create an Account with Overloaded Constructor.
-     *
-     * @param id
-     *      Account 's id
-     * @param iban
-     *      Account 's iban
-     * @param firstname
-     *      Account 's firstname
-     * @param lastname
-     *      Account 's lastname
-     * @param ssn
-     *      Account 's ssn
-     * @param balance
-     *      Account 's balance
-     * @param overdraftAccount
-     *      Account 's overdraft
-     * @param joinAccount
-     *      Account 's joint
-     */
-    public Account(int id, String iban, String firstname, String lastname, String ssn, double balance, OverdraftAccount overdraftAccount, JoinAccount joinAccount) {
-        this.id = id;
-        this.iban = iban;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.ssn = ssn;
-        this.balance = balance;
-        this.overdraftAccount = overdraftAccount;
-        this.joinAccount = joinAccount;
     }
 
     /**
@@ -257,46 +176,137 @@ public class Account {
     }
 
     /**
-     * Get Account 's overdraft.
+     * Gets Account 's overdraftAccount.
      *
      * @return
-     *      Account 's overdraft
+     *      Account 's overdraftAccount
      */
-    public OverdraftAccount getOverdraftAccount() {
-        return overdraftAccount;
+    public List<OverdraftAccount> getOverdraftAccount() {
+        return Collections.unmodifiableList(this.overdraftAccount);
     }
 
     /**
-     * Sets Account 's overdraft.
+     * Sets Account 's overdraftAccount.
      *
      * @param overdraftAccount
-     *      Account 's overdraft
+     *      Account 's overdraftAccount
      */
-    public void setOverdraftAccount(OverdraftAccount overdraftAccount) {
+    public void setOverdraftAccount(List<OverdraftAccount> overdraftAccount) {
         this.overdraftAccount = overdraftAccount;
     }
 
     /**
-     * Gets Account 's joint.
+     * Gets Account 's joinAccount.
      *
      * @return
-     *      Account 's joint
+     *      Account 's joinAccount
      */
-    public JoinAccount getJoinAccount() {
-        return joinAccount;
+    public List<JoinAccount> getJoinAccount() {
+        return Collections.unmodifiableList(this.joinAccount);
     }
 
     /**
-     * Sets Account 's joint.
+     * Sets Account 's joinAccount.
      *
      * @param joinAccount
-     *      Account 's joint
+     *      Account 's joinAccount
      */
-    public void setJoinAccount(JoinAccount joinAccount) {
+    public void setJoinAccount(List<JoinAccount> joinAccount) {
         this.joinAccount = joinAccount;
     }
 
+
     //Service Layer - Public API
+
+    /**
+     * Adds an overdraftAccount to an Account.
+     *
+     * @param overdraftAccount
+     *      Account 's overdraftAccount
+     */
+    public void addOverdraftAccount(OverdraftAccount overdraftAccount) {
+        if (overdraftAccount == null) {
+            System.out.println("Please insert a valid overdraftAccount");
+            System.out.println();
+        } else if (overdraftAccount.getAccount() == this) {
+            System.out.println("Please insert a new overdraftAccount");
+            System.out.println();
+        } else if (this.overdraftAccount.size() == 1) {
+            System.out.println("This Account already has overdraftAccount");
+            System.out.println();
+        } else {
+            this.overdraftAccount.add(overdraftAccount);
+            overdraftAccount.setAccount(this);
+            System.out.println("Was added an overdraftAccount");
+            System.out.println();
+        }
+    }
+
+    /**
+     * Removes an overdraftAccount from an Account.
+     *
+     * @param overdraftAccount
+     *      Account 's overdraftAccount
+     */
+    public void removeOverdraftAccount(OverdraftAccount overdraftAccount) {
+        if (overdraftAccount == null) {
+            System.out.println("Please insert a valid overdraftAccount");
+            System.out.println();
+        } else if (overdraftAccount.getAccount() == this) {
+            this.overdraftAccount.remove(overdraftAccount);
+            overdraftAccount.setAccount(null);
+            System.out.println("OverdraftAccount was removed");
+            System.out.println();
+        } else {
+            System.out.println("This overdraftAccount does not belong to Account ");
+            System.out.println();
+        }
+    }
+
+    /**
+     * Adds an joinAccount to an Account.
+     *
+     * @param joinAccount
+     *      Account 's joinAccount
+     */
+    public void addJointAccount(JoinAccount joinAccount) {
+        if (joinAccount == null) {
+            System.out.println("Please insert a valid overdraftAccount");
+            System.out.println();
+        } else if (joinAccount.getAccount() == this) {
+            System.out.println("Please insert a new overdraftAccount");
+            System.out.println();
+        } else if (this.joinAccount.size() == 1) {
+            System.out.println("This Account already has one Co-Holder");
+            System.out.println();
+        } else {
+            this.joinAccount.add(joinAccount);
+            joinAccount.setAccount(this);
+            System.out.println("Was added a jointAccount");
+            System.out.println();
+        }
+    }
+
+    /**
+     * Removes an joinAccount from an Account.
+     *
+     * @param joinAccount
+     *      Account 's joinAccount
+     */
+    public void removeJointAccount(JoinAccount joinAccount) {
+        if (joinAccount == null) {
+            System.out.println("Please insert a valid joinAccount");
+            System.out.println();
+        } else if (joinAccount.getAccount() == this) {
+            this.joinAccount.remove(joinAccount);
+            joinAccount.setAccount(null);
+            System.out.println("Co-Holder was removed");
+            System.out.println();
+        } else {
+            System.out.println("This joinAccount does not belong to Account ");
+            System.out.println();
+        }
+    }
 
     /**
      * Deposits a zero or positive amount of money
@@ -313,14 +323,14 @@ public class Account {
                 throw new Exception("Ssn not valid exception");
             }
             if (amount > 0) {
-                if (overdraftAccount != null) {
-                    if (overdraftAccount.getOverdraftBalance() > 0) {
-                        amount = overdraftAccount.getOverdraftBalance() - amount;
+                if (!overdraftAccount.isEmpty()) {
+                    if (overdraftAccount.get(0).getOverdraftBalance() > 0) {
+                        amount = overdraftAccount.get(0).getOverdraftBalance() - amount;
                         if (amount < 0) {
-                            overdraftAccount.setOverdraftBalance(0);
+                            overdraftAccount.get(0).setOverdraftBalance(0);
                             balance -=amount;
                         } else {
-                            overdraftAccount.setOverdraftBalance(amount);
+                            overdraftAccount.get(0).setOverdraftBalance(amount);
                         }
                     } else {
                         balance += amount;
@@ -355,10 +365,10 @@ public class Account {
             if (amount <= balance) {
                 balance -= amount;
             } else {
-                if (overdraftAccount != null) {
+                if (!overdraftAccount.isEmpty()) {
                     amount = amount - balance;
-                    if (amount <= (overdraftAccount.getOverdraftLimit() - overdraftAccount.getOverdraftBalance())) {
-                        overdraftAccount.setOverdraftBalance(overdraftAccount.getOverdraftBalance() + amount);
+                    if (amount <= (overdraftAccount.get(0).getOverdraftLimit() - overdraftAccount.get(0).getOverdraftBalance())) {
+                        overdraftAccount.get(0).setOverdraftBalance(overdraftAccount.get(0).getOverdraftBalance() + amount);
                         balance = 0;
                     } else {
                         throw new Exception("Insufficient balance exception");
@@ -390,30 +400,30 @@ public class Account {
      *      Account 's state
      */
     public String getAccountState() {
-        if ((overdraftAccount == null) && (joinAccount == null)) {
+        if ((overdraftAccount.isEmpty()) && (joinAccount.isEmpty())) {
             return "Holder:\n" + "ID: " + id + ", IBAN: " + iban + "\n" + firstname + " "
                     + lastname + "\nSSN: " + ssn + "\nBalance: " + balance;
-        } else if ((overdraftAccount != null) && (joinAccount == null)) {
+        } else if ((!overdraftAccount.isEmpty()) && (joinAccount.isEmpty())) {
             return "Owner:\n" + "ID: " + id + ", IBAN: " + iban + "\n" + firstname + " "
                     + lastname + "\nSSN: " + ssn + "\nBalance: " + balance
-                    + "\nOverdraft: " + overdraftAccount.getOverdraftBalance()
-                    + ", Overdraft Limit: " + overdraftAccount.getOverdraftLimit();
-        } else if ((overdraftAccount == null) && (joinAccount != null)) {
+                    + "\nOverdraft: " + overdraftAccount.get(0).getOverdraftBalance()
+                    + ", Overdraft Limit: " + overdraftAccount.get(0).getOverdraftLimit();
+        } else if ((overdraftAccount.isEmpty()) && (!joinAccount.isEmpty())) {
             return "Holder:\n" + "ID: " + id + ", IBAN: " + iban + "\n" + firstname + " "
                     + lastname + "\nSSN: " + ssn + "\nBalance: " + balance
                     + "\nCo-Holder:\n"
-                    + "ID: "  + joinAccount.getId() + "\n"
-                    + joinAccount.getFirstname() + ", " + joinAccount.getLastname()
-                    + "\nSSN: " + joinAccount.getSsn();
+                    + "ID: "  + joinAccount.get(0).getId() + "\n"
+                    + joinAccount.get(0).getFirstname() + ", " + joinAccount.get(0).getLastname()
+                    + "\nSSN: " + joinAccount.get(0).getSsn();
         } else {
             return "Holder:\n" + "ID: " + id + ", IBAN: " + iban + "\n" + firstname + " "
                     + lastname + "\nSSN: " + ssn + "\nBalance: " + balance
-                    + "\nOverdraft: " + overdraftAccount.getOverdraftBalance()
-                    + ", Overdraft Limit: " + overdraftAccount.getOverdraftLimit()
+                    + "\nOverdraft: " + overdraftAccount.get(0).getOverdraftBalance()
+                    + ", Overdraft Limit: " + overdraftAccount.get(0).getOverdraftLimit()
                     + "\nCo-Holder:\n"
-                    + "ID: "  + joinAccount.getId() + "\n"
-                    + joinAccount.getFirstname() + ", " + joinAccount.getLastname()
-                    + "\nSSN: " + joinAccount.getSsn();
+                    + "ID: "  + joinAccount.get(0).getId() + "\n"
+                    + joinAccount.get(0).getFirstname() + ", " + joinAccount.get(0).getLastname()
+                    + "\nSSN: " + joinAccount.get(0).getSsn();
         }
     }
 
@@ -426,6 +436,6 @@ public class Account {
      *      Returns true if is equals or false otherwise
      */
     private boolean isSsnValid(String ssn) {
-        return ((this.ssn.equals(ssn)) || (joinAccount.getSsn().equals(ssn)));
+        return ((this.ssn.equals(ssn)) || (joinAccount.get(0).getSsn().equals(ssn)));
     }
 }

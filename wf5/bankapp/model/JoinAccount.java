@@ -1,7 +1,5 @@
 package gr.aueb.cf.projects.wf5.bankapp.model;
 
-import gr.aueb.cf.ch10.Account;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -18,6 +16,8 @@ public class JoinAccount {
     private String firstname;
     private String lastname;
     private String ssn;
+
+    private Account account;
 
     /**
      * Creates an JointAccount instance with default Constructor.
@@ -123,4 +123,25 @@ public class JoinAccount {
     public void setSsn(String ssn) {
         this.ssn = ssn;
     }
+
+    /**
+     * Gets JointAccount 's account.
+     *
+     * @return
+     *      JointAccount 's account
+     */
+    public Account getAccount() {
+        return account;
+    }
+
+    /**
+     * Sets JointAccount 's account.
+     *
+     * @param account
+     *      JointAccount 's account
+     */
+    public void setAccount(Account account) {
+        this.account = account;
+    }
 }
+

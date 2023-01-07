@@ -10,7 +10,7 @@ public class OverdraftAccount {
     private int id;
     private double overdraftBalance;
     private double overdraftLimit;
-
+    private Account account;
     public OverdraftAccount() {
     }
 
@@ -88,5 +88,25 @@ public class OverdraftAccount {
      */
     public void setOverdraftLimit(double overdraftLimit) {
         this.overdraftLimit = overdraftLimit;
+    }
+
+    /**
+     * Gets OverdraftAccount 's account.
+     *
+     * @return
+     *      OverdraftAccount 's account
+     */
+    public Account getAccount() {
+        return account;
+    }
+
+    /**
+     * Sets OverdraftAccount 's account.
+     *
+     * @param account
+     *      OverdraftAccount 's account
+     */
+    public void setAccount(Account account) {
+        this.account = account;
     }
 }

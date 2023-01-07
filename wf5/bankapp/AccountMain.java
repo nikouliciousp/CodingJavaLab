@@ -18,16 +18,21 @@ public class AccountMain {
         Account alice = new Account(id.getId(), iban.getIbanStr() + iban.getIbanNum(), "Alice", "Kingsleigh", "R1", 100);
 
         //Create a simple Account with overdraft
-        OverdraftAccount overdraftAccount = new OverdraftAccount(1, 0, 100);
-        Account mad = new Account(id.getId(), iban.getIbanStr() + iban.getIbanNum(), "Mad", "Hatter", "R2", 100, overdraftAccount);
+        OverdraftAccount overdraftAccount1 = new OverdraftAccount(1, 0, 100);
+        Account mad = new Account(id.getId(), iban.getIbanStr() + iban.getIbanNum(), "Mad", "Hatter", "R2", 100);
+        mad.addOverdraftAccount(overdraftAccount1);
 
         //Create an account with co-holder
         JoinAccount white = new JoinAccount(id.getId(), "White", "Queen", "R4");
-        Account red = new Account(id.getId(), iban.getIbanStr() + iban.getIbanNum(), "Red", "Queen", "R3", 100, white);
+        Account red = new Account(id.getId(), iban.getIbanStr() + iban.getIbanNum(), "Red", "Queen", "R3", 100);
+        red.addJointAccount(white);
 
         //Create an account with co-holder and overdraft balance
         JoinAccount time = new JoinAccount(id.getId(), "Time", "Tik-Tok", "R6");
-        Account zanik = new Account(id.getId(), iban.getIbanStr() + iban.getIbanNum(), "Zanik", "Hightopp", "R4", 100, overdraftAccount, time);
+        OverdraftAccount overdraftAccount2 = new OverdraftAccount(1, 0, 100);
+        Account zanik = new Account(id.getId(), iban.getIbanStr() + iban.getIbanNum(), "Zanik", "Hightopp", "R4", 100);
+        zanik.addOverdraftAccount(overdraftAccount2);
+        zanik.addJointAccount(time);
 
         try {
             //Example a simple Account
@@ -75,6 +80,47 @@ public class AccountMain {
             red.deposit(300, "R4");
             System.out.println("Successful deposit $" + 300);
             System.out.println(red.getAccountState());
+
+            System.out.println();
+
+            //Example an account with co-holder and overdraft
+            System.out.println("Example an account with co-holder and overdraft");
+            zanik.deposit(50, "R4");
+            System.out.println("Successful deposit $" + 50);
+            System.out.println(zanik.getAccountState());
+
+            System.out.println();
+
+            zanik.withdraw(250, "R6");
+            System.out.println("Successful withdrawal $" + 250);
+            System.out.println(zanik.getAccountState());
+
+            System.out.println();
+
+            System.out.println("Add Co-Holder");
+            JoinAccount black = new JoinAccount(id.getId(), "Black", "Dark", "R7");
+            zanik.addJointAccount(black);
+            System.out.println(zanik.getAccountState());
+
+            System.out.println();
+
+            System.out.println("Add overdraftAccount");
+            OverdraftAccount overdraftAccount3 = new OverdraftAccount(1, 0, 100);
+            zanik.addOverdraftAccount(overdraftAccount3);
+            System.out.println(zanik.getAccountState());
+
+            System.out.println();
+
+            System.out.println("Remove overdraftAccount");
+            zanik.removeOverdraftAccount(overdraftAccount3);
+            System.out.println(zanik.getAccountState());
+
+            System.out.println();
+
+            System.out.println("Remove overdraftAccount");
+            zanik.removeOverdraftAccount(overdraftAccount2);
+            System.out.println(zanik.getAccountState());
+
 
         }catch (Exception e) {
             System.out.println(e.getMessage());
