@@ -105,7 +105,7 @@ public class AccountMain {
             System.out.println();
 
             System.out.println("Add overdraftAccount");
-            OverdraftAccount overdraftAccount3 = new OverdraftAccount(1, 0, 100);
+            OverdraftAccount overdraftAccount3 = new OverdraftAccount(2, 0, 100);
             zanik.addOverdraftAccount(overdraftAccount3);
             System.out.println(zanik.getAccountState());
 

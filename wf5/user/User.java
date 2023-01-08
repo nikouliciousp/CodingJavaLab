@@ -81,6 +81,12 @@ public class User {
         this.lastname = lastname;
     }
 
+    /**
+     * Prints User 's state.
+     *
+     * @return
+     *      User 's state
+     */
     public String userToString() {
         return "(" + id + ", " + firstname + " " + lastname + ")";
     }

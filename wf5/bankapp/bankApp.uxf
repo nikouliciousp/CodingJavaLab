@@ -1,0 +1,84 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>7</zoom_level><element><id>UMLClass</id><coordinates><x>546</x><y>140</y><w>637</w><h>399</h></coordinates><panel_attributes>Account
+--
+- id: int
+- iban: String
+- firstname: String
+- lastname: String
+- ssn: String
+- balance: double
+- overdraftAccount: List&lt;OverdraftAccount&gt;
+- jointAccount: List&lt;JointAcoount&gt;
+--
++ Account()
++ Account(id: int, iban: String, firstname: String, lastname: String, ssn: String, balance: double)
++ getId(): int
++ setId(id: int): void
++ getIban(): String
++ set(iban: String): void
++ getFirstname(): String
++ setFirstname(firstname: String): void
++ getLastanem(): String
++ setLastname(lastname: String): void
++ getSsn(): String
++ setSsn(ssn: String): void
++ getBalance(): double
++ setBalance(balance: double): void
++ getOverdraftAccount(): List&lt;OverdraftAccount&gt;
++ setOverdraftAccount(overdraftAccount: List&lt;OverdraftAccount&gt;): void
++ getJointAccount(): List&lt;JointAccount&gt;
++ setOverdraftAccount(jointAccount: List&lt;JointAccount&gt;): void
++ addOverdraftAccount(overdraftAccount: OverdraftAccount): void
++ removeOverdraftAccount(overdraftAccount: OverdraftAccount): void
++ addJointAccount(jointAccount: JointAccount): void
++ removeJointAccount(jointAccount: JointAccount): void
++ deposit(amount: double, ssn: String): void
++ withdraw(amount: double, ssn: String): void
++ getAccountBalance(): double
++ getAccountState(): String
++ isSSnValid(ssn: String): boolean
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>126</x><y>140</y><w>315</w><h>175</h></coordinates><panel_attributes>OverdraftAccount
+--
+- id: int
+- overdraftBalance: double
+- overdarftLimit: double
+- account: Account
+--
++ OverdraftAccount():
++ OverdraftAccount(id: int, overdraftBalance: double, overdraftLimit: double)
++ getId(): int
++ setId(id: int): void
++ getOverdraftBalance(): double
++ setOverdraftBalance(overdraftBalance: double): void
++ getOverdraftLimit(): double
++ setOverdraftLimit(overdraftLimit: double): void
++ getAccount(): Account
++ setAccount(account: Account): void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>126</x><y>336</y><w>280</w><h>203</h></coordinates><panel_attributes>JointAccount
+--
+- id: int
+- firsname: String
+- lastname: String
+- ssn: String
+- account: Account
+--
++ JointAccount()
++ JointAccount(id: int, firstname: String, lastname: String, ssn: String)
++ getId(): int
++ setId(id: int): void
++ getFirstname(): String
++ setFirstname(firstname: String): void
++ getLastname(): String
++ setLastname(lastname: String): void
++ getSsn(): String
++ setSsn(ssn: String): void
++ getAccount(): Account
++ setAccount(account: Account): void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>399</x><y>427</y><w>161</w><h>35</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+has &gt;</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>434</x><y>175</y><w>126</w><h>35</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+&lt; has</panel_attributes><additional_attributes>160;20;10;20</additional_attributes></element></diagram>

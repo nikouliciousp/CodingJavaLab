@@ -81,6 +81,12 @@ public class UserCredentials {
         this.password = password;
     }
 
+    /**
+     * Prints UserCredentials 's state.
+     *
+     * @return
+     *      UserCredentials 's state
+     */
     public String userCredentialsToString() {
         return "(" + id + ", " + username + " " + password + ")";
     }
