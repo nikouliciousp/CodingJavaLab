@@ -156,18 +156,20 @@ public class CombinationsSixApp {
      *              more than the allowed ending numbers
      */
     public static boolean isSameEnding(int[] row, int end) {
-        int count = 1;
+        int[] tempArr = new int[10];
+        int temp = 0;
 
-        for (int i = 0; i < row.length - 1; i++) {
-            if (row[row.length - 1] == row[i]) {
-                count++;
-                if (count > end) {
-                    break;
-                }
-            }
+        for (int i = 0; i < row.length; i++) {
+            temp = row[i] % 10;
+            tempArr[temp]++;
         }
 
-        return (count > end);
+        for (int i = 0; i < tempArr.length; i++) {
+            if (tempArr[i] > end) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -178,42 +180,19 @@ public class CombinationsSixApp {
      *              more than the allowed numbers belonging to the same ten
      */
     public static boolean isSameTen(int[] row, int ten) {
-        int count10 = 0;
-        int count20 = 0;
-        int count30 = 0;
-        int count40 = 0;
-        int count50 = 0;
+        int[] tempArr = new int[5];
+        int temp = 0;
 
         for (int i = 0; i < row.length; i++) {
-            if (row[i] <= 10) {
-                count10++;
-                if (count10 > ten) {
-                    break;
-                }
-            } else if (row[i] <= 20) {
-                count20++;
-                if (count20 > ten) {
-                    break;
-                }
-            } else if (row[i] <= 30) {
-                count30++;
-                if (count30 > ten) {
-                    break;
-                }
-            } else if (row[i] <= 40) {
-                count40++;
-                if (count40 > ten) {
-                    break;
-                }
-            }else {
-                count50++;
-                if (count50 > ten) {
-                    break;
-                }
-            }
+            temp = row[i] / 10;
+            tempArr[temp]++;
         }
 
-        return ((count10 > ten) || (count20 > ten) ||
-                (count30 > ten) || (count40 > ten) || (count50 > ten));
+        for (int i = 0; i < tempArr.length; i++) {
+            if (tempArr[i] > ten) {
+                return true;
+            }
+        }
+        return false;
     }
 }
