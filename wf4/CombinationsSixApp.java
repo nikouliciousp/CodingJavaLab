@@ -133,8 +133,8 @@ public class CombinationsSixApp {
     public static boolean isContinuous(int[] row, int continuous) {
         int count = 1;
 
-        for (int i = 1; i < row.length; i++) {
-            if (row[i - 1] == row[i] + 1) {
+        for (int i = 2; i < row.length; i++) {
+            if ((row[i - 2] == row[i - 1] + 1) && (row[i - 1] == row[i] + 1)) {
                 count++;
                 if (count > continuous) {
                     break;
