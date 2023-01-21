@@ -1,4 +1,4 @@
-package gr.aueb.cf.projects.wf6.singleton.coding;
+package gr.aueb.cf.projects.wf6.instances.singleton.coding;
 
 public class Main {
 

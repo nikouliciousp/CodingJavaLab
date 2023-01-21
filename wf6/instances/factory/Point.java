@@ -1,4 +1,4 @@
-package gr.aueb.cf.projects.wf6.factory;
+package gr.aueb.cf.projects.wf6.instances.factory;
 
 import java.util.Random;
 
@@ -50,6 +50,21 @@ public class Point {
     public static Point getRandomPoint() {
         Random rnd = new Random(System.currentTimeMillis());
         return new Point(rnd.nextDouble() * 101, rnd.nextDouble() * 101);
+    }
+
+    /**
+     * Static factory methods with specific
+      (x, y) coordinates.
+     *
+     * @param x
+     *      Point 's x coordinate
+     * @param y
+     *      Point 's y coordinate
+     * @return
+     *      a new Point instance with (x, y) coordinates
+     */
+    public static Point getSetPoint(double x, double y) {
+        return new Point(x, y);
     }
 
     /**

@@ -1,8 +1,8 @@
-package gr.aueb.cf.projects.wf6.util;
+package gr.aueb.cf.projects.wf6.instances.util;
 
 /**
- * Utility Class used for
- * APIs and Validation APIs.
+ * Enforce non-instantiability με private Constructor.
+ * Utility Class used for APIs and Validation APIs.
  *
  * @author Periklis Nikoulis
  */

@@ -1,4 +1,4 @@
-package gr.aueb.cf.projects.wf6.singleton.coding;
+package gr.aueb.cf.projects.wf6.instances.singleton.coding;
 
 /**
  * POJO Class - Singleton
@@ -22,6 +22,7 @@ public class CodingFactoryEager {
     public static CodingFactoryEager getInstance() {
         return INSTANCE;
     }
+
 
     /**
      * Prints "Hello".

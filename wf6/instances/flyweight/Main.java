@@ -1,10 +1,10 @@
-package gr.aueb.cf.projects.wf6.flyweight;
+package gr.aueb.cf.projects.wf6.instances.flyweight;
 
-import gr.aueb.cf.projects.wf6.flyweight.model.ImmutableCircle;
-import gr.aueb.cf.projects.wf6.flyweight.model.ImmutablePoint;
+import gr.aueb.cf.projects.wf6.instances.flyweight.model.ImmutableCircle;
+import gr.aueb.cf.projects.wf6.instances.flyweight.model.ImmutablePoint;
 
-import static gr.aueb.cf.projects.wf6.flyweight.model.FlyweightFactory.getCircle;
-import static gr.aueb.cf.projects.wf6.flyweight.model.FlyweightFactory.getPoint;
+import static gr.aueb.cf.projects.wf6.instances.flyweight.model.FlyweightFactory.getCircle;
+import static gr.aueb.cf.projects.wf6.instances.flyweight.model.FlyweightFactory.getPoint;
 
 public class Main {
 
@@ -12,8 +12,7 @@ public class Main {
 
         ImmutablePoint pointOne = getPoint(1, 2);
         ImmutablePoint pointTwo = getPoint(1, 2);
-
-        ImmutableCircle circleOne = getCircle(pointOne, 2);
+        ImmutableCircle circleOne = getCircle(pointOne, 10);
         ImmutableCircle circleTwo = getCircle(pointTwo, 2);
 
         System.out.println(pointOne.convertToString());

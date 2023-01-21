@@ -1,4 +1,4 @@
-package gr.aueb.cf.projects.wf6.flyweight.model;
+package gr.aueb.cf.projects.wf6.instances.flyweight.model;
 
 /**
  * Java Bean.

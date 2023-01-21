@@ -1,4 +1,4 @@
-package gr.aueb.cf.projects.wf6.reflect.teacher;
+package gr.aueb.cf.projects.wf6.instances.reflect.teacher;
 
 /**
  * Defines a {@link Teacher} class.

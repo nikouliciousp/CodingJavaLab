@@ -1,4 +1,4 @@
-package gr.aueb.cf.projects.wf6.reflect.user;
+package gr.aueb.cf.projects.wf6.instances.reflect.user;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -7,8 +7,8 @@ public class ReflectionMain {
     public static void main(String[] args) {
         try {
             //Load Classes
-            Class<?> aClass = Class.forName("gr.aueb.cf.projects.wf6.reflect.user.User");
-            Class<?> bClass = Class.forName("gr.aueb.cf.projects.wf6.reflect.user.UserCredentials");
+            Class<?> aClass = Class.forName("gr.aueb.cf.projects.wf6.instances.reflect.user.User");
+            Class<?> bClass = Class.forName("gr.aueb.cf.projects.wf6.instances.reflect.user.UserCredentials");
 
             //Gets overloaded constructors and creates instances
             Constructor<?>  intCtr1 = aClass.getConstructor(Long.class, String.class, String.class);

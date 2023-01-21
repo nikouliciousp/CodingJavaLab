@@ -1,4 +1,4 @@
-package gr.aueb.cf.projects.wf6.reflect.teacher;
+package gr.aueb.cf.projects.wf6.instances.reflect.teacher;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
         try {
             //clazz = Teacher.class
-            Class<?> clazz = Class.forName("gr.aueb.cf.projects.wf6.reflect.teacher.Teacher");
+            Class<?> clazz = Class.forName("gr.aueb.cf.projects.wf6.instances.reflect.teacher.Teacher");
             Constructor<?> defaultCtr = clazz.getDeclaredConstructor();
             defaultCtr.setAccessible(true);
             Teacher teacher1 = (Teacher) defaultCtr.newInstance();

@@ -1,4 +1,4 @@
-package gr.aueb.cf.projects.wf6.flyweight.model;
+package gr.aueb.cf.projects.wf6.instances.flyweight.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +11,6 @@ import java.util.List;
 public class FlyweightFactory {
     private static final List<ImmutablePoint> points = new ArrayList<>();
     private static final List<ImmutableCircle> circles = new ArrayList<>();
-    private static ImmutablePoint point = null;
-    private static ImmutableCircle circle = null;
 
     /**
      * Default Constructor.
@@ -30,11 +28,13 @@ public class FlyweightFactory {
      *      Point 's (x, y)
      */
     public static ImmutablePoint getPoint(int x, int y) {
+        ImmutablePoint[] point = new ImmutablePoint[1];
+
         if (!pointExists(x, y, point)) {
-            point = new ImmutablePoint(x, y);
-            points.add(point);
+            point[0] = new ImmutablePoint(x, y);
+            points.add(point[0]);
         }
-        return point;
+        return point[0];
     }
 
     /**
@@ -50,13 +50,12 @@ public class FlyweightFactory {
      *      false if Point 's (x, y) do not exist and change
      *      point 's reference otherwise return true
      */
-    private static boolean pointExists(int x, int y, ImmutablePoint point) {
+    private static boolean pointExists(int x, int y, ImmutablePoint[] point) {
         boolean found = false;
-        point = null;
 
         for (ImmutablePoint p : points) {
             if ((p.getX() == x) && (p.getY() == y)) {
-                point = p;
+                point[0] = p;
                 found = true;
                 break;
             }
@@ -75,11 +74,13 @@ public class FlyweightFactory {
      *      Circle 's (x, y), radius
      */
     public static ImmutableCircle getCircle(ImmutablePoint center, int radius) {
+        ImmutableCircle[] circle = new ImmutableCircle[1];
+
         if (!circlesExists(center, radius, circle)) {
-            circle = new ImmutableCircle(center, radius);
-            circles.add(circle);
+            circle[0] = new ImmutableCircle(center, radius);
+            circles.add(circle[0]);
         }
-        return circle;
+        return circle[0];
     }
 
     /**
@@ -95,14 +96,13 @@ public class FlyweightFactory {
      *      false if Circle 's (x, y), radius do not exist and change
      *      circle 's reference otherwise return true
      */
-    private static boolean circlesExists(ImmutablePoint center, int radius, ImmutableCircle circle) {
+    private static boolean circlesExists(ImmutablePoint center, int radius, ImmutableCircle[] circle) {
         boolean found = false;
-        circle = null;
 
         for (ImmutableCircle c : circles) {
             if ((c.getRadius() == radius)
                 && (c.getCenter() == center)) {
-                circle = c;
+                circle[0] = c;
                 found = true;
                 break;
             }

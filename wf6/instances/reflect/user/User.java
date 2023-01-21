@@ -1,4 +1,4 @@
-package gr.aueb.cf.projects.wf6.reflect.user;
+package gr.aueb.cf.projects.wf6.instances.reflect.user;
 
 public class User {
     private Long id;
