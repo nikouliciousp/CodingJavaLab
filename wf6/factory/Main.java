@@ -1,4 +1,4 @@
-package gr.aueb.cf.projects.wf6.instances.factory;
+package gr.aueb.cf.projects.wf6.factory;
 
 public class Main {
 

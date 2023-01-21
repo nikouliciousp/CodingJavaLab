@@ -1,4 +1,4 @@
-package gr.aueb.cf.projects.wf6.instances.util;
+package gr.aueb.cf.projects.wf6.util;
 
 public class Main {
 

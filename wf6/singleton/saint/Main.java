@@ -1,4 +1,4 @@
-package gr.aueb.cf.projects.wf6.instances.singleton.saint;
+package gr.aueb.cf.projects.wf6.singleton.saint;
 
 public class Main {
 

@@ -1,7 +1,7 @@
-package gr.aueb.cf.projects.wf6.instances.flyweight;
+package gr.aueb.cf.projects.wf6.flyweight;
 
-import gr.aueb.cf.projects.wf6.instances.flyweight.model.ImmutableCircle;
-import gr.aueb.cf.projects.wf6.instances.flyweight.model.ImmutablePoint;
+import gr.aueb.cf.projects.wf6.flyweight.model.ImmutableCircle;
+import gr.aueb.cf.projects.wf6.flyweight.model.ImmutablePoint;
 
 import static gr.aueb.cf.projects.wf6.instances.flyweight.model.FlyweightFactory.getCircle;
 import static gr.aueb.cf.projects.wf6.instances.flyweight.model.FlyweightFactory.getPoint;
